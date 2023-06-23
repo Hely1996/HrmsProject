@@ -1,0 +1,112 @@
+<div class="row">
+    <div class="col-sm-12">
+        <app-card cardTitle="Timesheet">
+          <!-- <div class="row"> -->
+            <button (click)="open(content)" class="my-submit-button"  >Create Timesheet</button> 
+            <!-- <span class="col-md-3"></span> -->
+            <input type="text" [(ngModel)]="searchQuery" (input)="filterTableData()" placeholder="Filter by name"  class="form-control col-md-2" >
+           <!-- </div> -->
+            <ng-template #content>
+                <div class="modal-header">
+                  <h4 class="modal-title">Timesheet</h4>
+                  <button type="button" class="close" aria-label="Close" (click)="modalService.dismissAll()">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+
+                  
+                </div>
+                <!-- <input type="text" [(ngModel)]="filterTerm" (input)="filterTable()" placeholder="Filter by name"> -->
+                <div class="modal-body">
+        <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+                        <div class="form-group"> 
+                          <div class="form-group"> 
+
+                            <label>Id</label><br/>
+                            
+                            
+                            <input type="number" formControlName="employeId">
+                        </div>
+                          <label>Project Type</label><br/>
+                          
+                          <!-- <select formControlName="projecttype" id="projecttype">
+
+                              <option  value=1>Internal</option>
+                              <option  value=2>External</option>
+                          </select> -->
+                          <label>
+                            <input type="radio" formControlName="projectType" value="Internal"> Internal  
+                          </label>
+                          <label>
+                            <input type="radio" formControlName="projectType" value="External"> External
+                          </label>
+                        </div>
+                        <div class="form-group">
+                            <label>Date</label><br/>
+                            <input type="date" formControlName="workDoneOn" id="date">
+                        </div>
+                        <div class="form-group"> 
+
+                            <label>Hour</label><br/>
+                            
+                            
+                            <input type="number" formControlName="workTime">
+                        </div>
+                        
+                        <div class="form-group">                   
+                        </div>
+                    
+                        <div class="form-group">
+                            <label for="longText">Description:</label>
+                            <textarea id="longText" name="longText" formControlName="description" class="form-control" ></textarea>
+                        </div>
+                        <button type="submit" class="my-submit-button" >Submit</button> 
+
+
+                    </form> 
+                  
+                </div>
+               
+              </ng-template>
+              <!-- <div class="row"> -->
+                
+              <!-- </div> -->
+               
+            <table class="table" >
+                <thead>
+                  <tr>
+                    
+                    <th>Id</th>
+                    <th>Name</th>
+                   
+                    
+                    <th>Type</th>
+                    <th>Description</th>
+                    <th>Work Done On</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of  getPaginatedData()|| filteredData">
+                   
+                    <td>{{ item.employeId }}</td>
+                    <td>{{ item.lastName }}</td>
+                   
+                    <td>{{ item.projectType }}</td>
+                    <td>{{ item.description }}</td>
+                    
+                    <td [ngClass]="getStatusClass(item.status)">{{ item.workDoneOn }}</td>
+                    <td><i class='fas fa-edit' *ngIf="item.status!=='accepted'"></i></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div>
+                <button (click)="currentPage = currentPage - 1" [disabled]="currentPage === 1">Previous</button>
+                <span>Page {{ currentPage }}</span>
+                <button (click)="currentPage = currentPage + 1" [disabled]="currentPage * pageSize >= tabledata.length">Next</button>
+              </div>
+             
+           
+        </app-card>
+
+</div>
+</div>
+
