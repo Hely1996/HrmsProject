@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* SCSS */
+@import "scss/style";
+
+.my-submit-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 16px;
+  }
+  
+  .my-submit-button:hover {
+    background-color: #0069d9;
+    color: #fff;
+  }
+  .logo_this{
+    height: 100px;
+    width: 130px;
+}

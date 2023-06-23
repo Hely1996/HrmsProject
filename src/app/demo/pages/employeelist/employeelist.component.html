@@ -1,0 +1,236 @@
+<div class="row">
+    <div class="col-sm-12">
+        <app-card cardTitle="Employee List">
+            <!-- <button (click)="open(content)" class="my-submit-button"  >Create Timesheet</button>  -->
+            <ng-template #contentedit>
+                <div class="modal-header">
+                  <h4 class="modal-title">Edit Employee Details</h4>
+                  <button type="button" class="close" aria-label="Close" (click)="modalService.dismissAll()">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+        <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+                    
+                       
+                        <div class="row col-md-12">
+                            <div class="col-md-6">   
+                                <label><b>Employee Name</b></label><br/>
+                                <input type="text" formControlName="hour" value="ICICI">
+                            </div>
+                            <!-- <div class="col-md-2"></div> -->
+                            <div class="form-group col-md-6">
+                                <label><b>Role</b></label><br/>                       
+                                <select (change)="onChange($event)">
+                                  <option *ngFor="let v of values" [value]="Employee">{{v}}</option>
+                              </select>
+                                <!-- <label>Employee</label><br/>       -->
+                            </div>
+                        </div>
+                        <div class="row col-md-12">
+                            
+
+                            
+                        <div class="form-group col-md-6"> 
+                              
+                            <label><b>Salary</b></label><br/>   
+                            <label>35000</label><br/>  
+                        </div> 
+                        <div class="form-group col-md-6"> 
+                           
+                            <label><b>Joining Date</b></label><br/>   
+                            <input type="date" formControlName="fromDate">
+                        </div>
+                        </div>
+                        <!-- <div class="row col-md-12">
+                        <div class="form-group col-md-6"> 
+
+                            <label><b>Company Project</b></label><br/>
+                            <input type="text" formControlName="hour">
+                        </div>
+                        <div class="form-group col-md-6"> 
+
+                            <label><b>Project Name</b></label><br/>   
+                            <input type="text" formControlName="hour">
+                        </div>
+                        </div> -->
+                        <div class="row col-md-12">
+                            <div class="form-group col-md-12"> 
+
+                                <label>
+                                    <input type="radio" name="isChecked" value="option1" formControlName="isChecked"> Working
+                                  </label> 
+                                  &nbsp;
+                                  <label>
+                                    <input type="radio" name="isChecked" value="option2" formControlName="isChecked"> Resigned
+                                  </label>
+                            </div>                        
+                        </div>
+                        <div class="row col-md-12">
+                            
+                            <div class="form-group col-md-12"> 
+                        <button type="submit" class="my-submit-button" >Submit</button> 
+                        </div>
+                        </div>
+
+
+                    </form> 
+                  
+                </div>
+                <!-- <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" (click)="modalService.dismissAll()">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div> -->
+              </ng-template>
+
+            <ng-template #content>
+                <div class="modal-header">
+                  <h4 class="modal-title">Edit salary</h4>
+                  <button type="button" class="close" aria-label="Close" (click)="modalService.dismissAll()">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+        <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+                    
+                        <div class="row col-md-12">
+                            <div class="col-md-6">   
+                                <label><b>Employee Name</b></label><br/>
+                                <label>Hely Rathod</label><br/>
+                            </div>
+                            <!-- <div class="col-md-2"></div> -->
+                            <div class="form-group col-md-6">
+                                <label><b>Bank Name</b></label><br/>                       
+                            
+                            <input type="text" formControlName="hour" value="ICICI">
+                            </div>
+                        </div>
+                        <div class="row col-md-12">
+                            
+
+                            
+                        <div class="form-group col-md-6"> 
+                            <label style="text-align: center;"><b>Earnings</b></label><br/>    
+                            <label><b>Basic Salary</b></label><br/>   
+                            <input type="number" formControlName="hour">
+                        </div> 
+                        <div class="form-group col-md-6"> 
+                            <label style="text-align: center;" ><b>Deductions</b></label><br/>
+                            <label><b>EPF</b></label><br/>   
+                            <input type="number" formControlName="hour">
+                        </div>
+                        </div>
+                        <div class="row col-md-12">
+                        <div class="form-group col-md-6"> 
+
+                            <label><b>Medical Allowances</b></label><br/>
+                            <input type="number" formControlName="hour">
+                        </div>
+                        <div class="form-group col-md-6"> 
+
+                            <label><b>Health Insurance</b></label><br/>   
+                            <input type="number" formControlName="hour">
+                        </div>
+                        </div>
+                        <div class="row col-md-12">
+                        <div class="form-group col-md-6"> 
+
+                            <label><b>Conveyance Allowances</b></label><br/>   
+                            <input type="number" formControlName="hour">
+                        </div>
+                        <div class="form-group col-md-6"> 
+
+                            <label><b>Tax</b></label><br/>   
+                            <input type="number" formControlName="hour">
+                        </div>
+                        </div>
+                        <div class="row col-md-12">
+                        <div class="form-group col-md-6"> 
+
+                            <label><b>Gross Salary</b></label><br/>
+                            
+                            <label>50250</label><br/>
+                            
+                        </div>
+                        <div class="form-group col-md-6"> 
+
+                            <label><b>Total Deduction</b></label><br/>   
+                            <label>2500</label><br/>
+                        </div>
+                        </div>
+                        <div class="row col-md-12 ">
+                            <div class="form-group col-md-6">
+                            <label class="row col-md-12"><b>Net Pay</b></label><br/>   
+                            </div>
+                            <div class="form-group col-md-6">
+                            <label>50000</label><br/>
+                            </div>
+                        </div>
+                        <!-- <div class="form-group">                   
+                        </div> -->
+                    
+                        <div class="row col-md-12 ">
+                            <div class="form-group col-md-6">
+                        <button type="submit" class="my-submit-button" >Submit</button> 
+                        </div>
+                        </div>
+
+
+                    </form> 
+                  
+                </div>
+                <!-- <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" (click)="modalService.dismissAll()">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div> -->
+              </ng-template>
+
+            <table class="table" >
+                <thead>
+                  <tr>
+                    <th>Employee Name</th>
+                    <th>Role</th>
+                    <th>Joining Date</th>
+                    <th>Salary</th>
+                    <th>Company Project</th>
+                    <th>Project Name</th>
+                    <!-- <th>Description</th> -->
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let person of people | slice:(page-1)*pageSize: page*pageSize; let i = index ">
+                    <td>{{ person.empname }}</td>
+                    <td>{{ person.role }}</td>
+                    <td>{{ person.firstName }}</td>
+                    <td>{{ person.lastName }}</td>
+                    <td>{{ person.companyProject }}</td>
+                    <td>{{ person.project }}</td>
+                    <!-- <td>{{ person.email }}</td> -->
+                    <td [ngClass]="getStatusClass(person.status)">{{ person.status }}</td>
+                    <td><i class='fas fa-edit' (click)="openedit(contentedit)" *ngIf="person.status!=='accepted'"></i></td>
+                    <td><button type="button"  (click)="open(content)" class="my-submit-button" *ngIf="person.role=='HR'">Edit Salary</button></td>
+                  </tr>
+                </tbody>
+              </table>
+              <!-- <ngb-pagination [collectionSize]="people.length" 
+              [(page)]="table.activePage" [pageSize]="table.pageSize"></ngb-pagination> -->
+              <pagination-controls [(ngModel)]="page" [itemsPerPage]="pageSize" class="my-pagination"></pagination-controls>
+              <!-- <div class="mt-3">
+                <ngb-pagination
+                  [(page)]="page"
+                  [pageSize]="pageSize"
+                  [collectionSize]="collectionSize"
+                  [maxSize]="5"
+                  [boundaryLinks]="true"
+                  [ellipses]="false"
+                  (pageChange)="updatePagination()"
+                ></ngb-pagination>
+              </div>  -->
+           
+        </app-card>
+
+</div>
+</div>
+
+

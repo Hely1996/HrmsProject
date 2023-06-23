@@ -1,0 +1,131 @@
+<div class="row">
+    <div class="col-sm-12">
+        <app-card cardTitle="LeaveRequests">
+             <!-- <button (click)="open(content)" class="my-submit-button"  >My Request</button>  -->
+             <button (click)="goToVotes()" class="my-submit-button"  >My Request</button> 
+            <ng-template #content>
+              <div class="modal-header">
+                <h4 class="modal-title">Edit Employee Details</h4>
+                <button type="button" class="close" aria-label="Close" (click)="modalService.dismissAll()">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+      <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+                  
+                     
+                      <div class="row col-md-12">
+                          <div class="col-md-6">   
+                              <label><b>Employee Name</b></label><br/>
+                              <input type="text" formControlName="hour" value="ICICI">
+                          </div>
+                          <!-- <div class="col-md-2"></div> -->
+                          <div class="form-group col-md-6">
+                              <label><b>Role</b></label><br/>                       
+                          
+                              <label>Employee</label><br/>      
+                          </div>
+                      </div>
+                      <div class="row col-md-12">
+                          
+
+                          
+                      <div class="form-group col-md-6"> 
+                            
+                          <label><b>Salary</b></label><br/>   
+                          <label>50000</label><br/>  
+                      </div> 
+                      <div class="form-group col-md-6"> 
+                         
+                          <label><b>Joining Date</b></label><br/>   
+                          <input type="date" formControlName="fromDate">
+                      </div>
+                      </div>
+                      <div class="row col-md-12">
+                      <div class="form-group col-md-6"> 
+
+                          <label><b>Company Project</b></label><br/>
+                          <input type="text" formControlName="hour">
+                      </div>
+                      <div class="form-group col-md-6"> 
+
+                          <label><b>Project Name</b></label><br/>   
+                          <input type="text" formControlName="hour">
+                      </div>
+                      </div>
+                      <div class="row col-md-12">
+                          <div class="form-group col-md-12"> 
+
+                              <label>
+                                  <input type="radio" name="isChecked" value="option1" formControlName="isChecked"> Working
+                                </label> 
+                                &nbsp;
+                                <label>
+                                  <input type="radio" name="isChecked" value="option2" formControlName="isChecked"> Resigned
+                                </label>
+                          </div>                        
+                      </div>
+                      <div class="row col-md-12">
+                          
+                          <div class="form-group col-md-12"> 
+                      <button type="submit" class="my-submit-button" >Submit</button> 
+                      </div>
+                      </div>
+
+
+                  </form> 
+                
+              </div>
+              <!-- <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="modalService.dismissAll()">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div> -->
+            </ng-template>
+       
+            <table class="table" >
+                <thead>
+                  <tr>
+                    <th>Employee Name</th>
+                    <th>From Date</th>
+                    <th>To date</th>
+                    <th>Full day</th>
+                    <th>Description</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let person of leaverequest | slice:(page-1)*pageSize: page*pageSize; let i = index ">
+                    <td>{{ person.employeeName }}</td>
+                    <td>{{ person.fromDate }}</td>
+                    <td>{{ person.toDate }}</td>
+                    <td>{{ person.full_day }}</td>
+                    <td>{{ person.description }}</td>
+                    <td>
+                      <button type="button" class="btn btn-success">Accept</button>
+                      <button type="button" class="btn btn-danger">Reject</button>
+                    </td>
+                    
+                    
+                  </tr>
+                </tbody>
+              </table>
+              <!-- <ngb-pagination [collectionSize]="people.length" 
+              [(page)]="table.activePage" [pageSize]="table.pageSize"></ngb-pagination> -->
+              <pagination-controls [(ngModel)]="page" [itemsPerPage]="pageSize" class="my-pagination"></pagination-controls>
+              <!-- <div class="mt-3">
+                <ngb-pagination
+                  [(page)]="page"
+                  [pageSize]="pageSize"
+                  [collectionSize]="collectionSize"
+                  [maxSize]="5"
+                  [boundaryLinks]="true"
+                  [ellipses]="false"
+                  (pageChange)="updatePagination()"
+                ></ngb-pagination>
+              </div>  -->
+           
+        </app-card>
+
+</div>
+</div>
+
