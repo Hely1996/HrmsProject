@@ -1,28 +1,34 @@
-dist/
-tmp/
-app/**/*.js
-app/**/*.js.map
+# Dependency directories
+/node_modules
+/dist
 
-# dependencies
-node_modules/
-bower_components/
+# Environment variables
+/src/environments/environment.ts
+/src/environments/environment.prod.ts
 
-# IDEs and editors
-.idea/
+# Build artifacts
+/dist
+/coverage
 
-# misc
-.sass-cache/
-connect.lock/
-coverage/
-libpeerconnection.log/
-npm-debug.log
-testem.log
-typings/
-.angular/
+# IDE and editor files
+/.vscode
+/.idea
+/.vs
+/.DS_Store
+/.suo
+/.ntvs*
+/*.sln
+/*.sw*
 
-# e2e
-e2e/*.js
-e2e/*.map
+# Compiled output
+/*.js
+/*.js.map
+/*.css
+/*.css.map
 
-# System Files
-.DS_Store/
+# Test files
+/*.spec.ts
+
+# Other generated files
+/tsconfig*.json
+/*.log
